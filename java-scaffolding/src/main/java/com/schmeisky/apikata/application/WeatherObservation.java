@@ -1,6 +1,7 @@
 package com.schmeisky.apikata.application;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public final class WeatherObservation {
     private final String id;
@@ -60,5 +61,18 @@ public final class WeatherObservation {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, date, time, temperature, pressure, windDirection);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", WeatherObservation.class.getSimpleName() + "[", "]")
+                .add("id='" + id + "'")
+                .add("name='" + name + "'")
+                .add("date='" + date + "'")
+                .add("time='" + time + "'")
+                .add("temperature='" + temperature + "'")
+                .add("pressure='" + pressure + "'")
+                .add("windDirection='" + windDirection + "'")
+                .toString();
     }
 }
